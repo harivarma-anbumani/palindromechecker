@@ -1,6 +1,6 @@
 # Palindrome Checker Assignment
 
-Assignment on Palindrome using Sprint boot 
+Assignment on Palindrome using Sprint boot
 <hr/>
 
 ### Requirement
@@ -11,16 +11,16 @@ characters which reads the same backward as forward, such as madam or kayak. The
 should include the ability to:
 
 *  Validate the input – for the first release values with spaces or numbers should be
-rejected. The solution should support the ability to easily add further validations over
-time though.
+   rejected. The solution should support the ability to easily add further validations over
+   time though.
 *  To improve performance a cache should be kept of previously processed values.
 *  Each processed value should also be written to a permanent storage solution (for the
-purposes of this POC a file system can be used however this should be easily
-substituted for a Database solution for example).
+   purposes of this POC a file system can be used however this should be easily
+   substituted for a Database solution for example).
 *  Upon startup the cache should be populated with the contents from the permanent
-storage.
+   storage.
 *  For performance reasons the API response should not be dependent/blocked by the
-completion of the permanent persistence.
+   completion of the permanent persistence.
 *  This solution should include appropriate tests
 *  Diagnose any support enquires.
 
@@ -61,17 +61,17 @@ graph LR;
 ```
 
 **Sample Output:**
-    
-| Number# | Input        | Output        | 
-|---------|--------------|---------------|
-| 1       | 	"Madam"     | $${\color{green}True}$$         | 
-| 2       | 	"KaYak"     | $${\color{green}True}$$            |
-| 3       | 	"Ma121am"   | $${\color{green}True}$$            | 
-| 4       | 	"123454321" | $${\color{green}True}$$            |
-| 5       | 	"test Text" | $${\color{red}False}$$         |
-| 6       | 	"testText12345" | $${\color{red}False}$$          |
-| 7       | 	"1234Test"     | $${\color{Orange}Invalid Input}$$  |
-| 8       | 	" testText" | $${\color{Orange}Invalid Input}$$ |
+
+| Number# | Input            | Output                                               | 
+|---------|------------------|------------------------------------------------------|
+| 1       | 	"Madam"         | $${\color{green}True}$$                              | 
+| 2       | 	"KaYak"         | $${\color{green}True}$$                              |
+| 3       | 	"Ma121am"       | $${\color{green}True}$$                              | 
+| 4       | 	"A123454321A"   | $${\color{green}True}$$                              |
+| 5       | 	"test Text"     | $${\color{red}False}$$                               |
+| 6       | 	"testText12345" | $${\color{red}False}$$                               |
+| 7       | 	"1234Test"      | $${\color{Orange}Invalid Input}$$                    |
+| 8       | 	" testText"     | $${\color{Orange}Invalid Input}$$ Starts with Space  |
 
 
 
@@ -79,19 +79,19 @@ graph LR;
 **Sample Curl Output:**
 
 1. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "MadAM" }
-   
-   Output: { "username": "testuser1", "text": "MadAM", "palindrome": true }
-   
-2. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak" } 
-   
-   Output: { "username": "testuser1", "text": "KaYak", "palindrome": true }
+
+   Output: { "username": "testuser1", "text": "madam", "palindrome": true }
+
+2. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak" }
+
+   Output: { "username": "testuser1", "text": "kayak", "palindrome": true }
 
 3. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak123" }
-   
-   Output: { "username": "testuser1", "text": "KaYak123", "palindrome": false }
+
+   Output: { "username": "testuser1", "text": "kayak123", "palindrome": false }
 
 4. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "123KaYak" }
-   
-   Output: 
-      * Bad Request(400)
-      * "Invalid User Request: Only Non-Empty and alphanumeric characters are allowed as inputs"
+
+   Output:
+   * Bad Request(400)
+   * "Invalid User Request: Only Non-Empty and alphanumeric characters are allowed as inputs"
