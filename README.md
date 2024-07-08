@@ -60,41 +60,20 @@ graph LR;
 ```
 
 **Sample Output:**
-
-<style>
-    .heatMap {
-        width: 70%;
-        text-align: center;
-    }
-    .heatMap th {
-        background: grey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .heatMap tr:nth-child(1) { background: #BFFFE9; }
-    .heatMap tr:nth-child(2) { background: #BFFFE9; }
-    .heatMap tr:nth-child(3) { background: #BFFFE9; }
-    .heatMap tr:nth-child(4) { background: #BFFFE9; }
-    .heatMap tr:nth-child(5) { background: #FF7FAA; }
-    .heatMap tr:nth-child(6) { background: #FF7FAA; }
-    .heatMap tr:nth-child(7) { background: #FFD47F; }
-    .heatMap tr:nth-child(8) { background: #FFD47F; }
-</style>
-
-<div class="heatMap">
-
+    
 | Number# | Input        | Output        | 
 |---------|--------------|---------------|
-| 1       | 	"Madam"     | True          | 
-| 2       | 	"KaYak"     | true          |
-| 3       | 	"Ma121am"   | true          | 
-| 4       | 	"123454321" | true          |
-| 5       | 	"test Text" | false         |
-| 6       | 	"testText12345" | false         |
-| 7       | 	"12345"     | Invalid Input |
-| 8       | 	" testText" | Invalid Input |
+| 1       | 	"Madam"     | $${\color{green}True}$$         | 
+| 2       | 	"KaYak"     | $${\color{green}True}$$            |
+| 3       | 	"Ma121am"   | $${\color{green}True}$$            | 
+| 4       | 	"123454321" | $${\color{green}True}$$            |
+| 5       | 	"test Text" | $${\color{red}False}$$         |
+| 6       | 	"testText12345" | $${\color{red}False}$$          |
+| 7       | 	"12345"     | $${\color{Orange}Invalid Input}$$  |
+| 8       | 	" testText" | $${\color{Orange}Invalid Input}$$ |
 
-</div>
+
+
 
 **Sample Curl Output:**
 
