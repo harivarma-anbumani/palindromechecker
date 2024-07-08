@@ -40,10 +40,11 @@ A copy of the source code can be clone from the below github repository,
 | Number# | Technology Used         | 
 |---------|-------------------------|
 | 1       | 	Java 22                |
-| 2       | 	Spring boot            |
-| 3       | 	Spring REST            |
-| 4       | 	lombok                 |
-| 5       | 	Embedded Tomcat        |
+| 2       | 	Gradle v8                |
+| 3       | 	Spring boot            |
+| 4       | 	Spring REST            |
+| 5       | 	lombok                 |
+| 6       | 	Embedded Tomcat        |
 
 **Working Logic:**
 
