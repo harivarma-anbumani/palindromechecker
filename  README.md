@@ -1,6 +1,6 @@
 # Palindrome Checker Assignment
 
-Assignment on Palindrome using Sprint boot 
+Assignment on Palindrome using Sprint boot
 <hr/>
 
 ### Requirement
@@ -11,16 +11,16 @@ characters which reads the same backward as forward, such as madam or kayak. The
 should include the ability to:
 
 *  Validate the input – for the first release values with spaces or numbers should be
-rejected. The solution should support the ability to easily add further validations over
-time though.
+   rejected. The solution should support the ability to easily add further validations over
+   time though.
 *  To improve performance a cache should be kept of previously processed values.
 *  Each processed value should also be written to a permanent storage solution (for the
-purposes of this POC a file system can be used however this should be easily
-substituted for a Database solution for example).
+   purposes of this POC a file system can be used however this should be easily
+   substituted for a Database solution for example).
 *  Upon startup the cache should be populated with the contents from the permanent
-storage.
+   storage.
 *  For performance reasons the API response should not be dependent/blocked by the
-completion of the permanent persistence.
+   completion of the permanent persistence.
 *  This solution should include appropriate tests
 *  Diagnose any support enquires.
 
@@ -40,10 +40,11 @@ A copy of the source code can be clone from the below github repository,
 | Number# | Technology Used         | 
 |---------|-------------------------|
 | 1       | 	Java 22                |
-| 2       | 	Spring boot            |
-| 3       | 	Spring REST            |
-| 4       | 	lombok                 |
-| 5       | 	Embedded Tomcat        |
+| 2       | 	Gradle v8                |
+| 3       | 	Spring boot            |
+| 4       | 	Spring REST            |
+| 5       | 	lombok                 |
+| 6       | 	Embedded Tomcat        |
 
 **Working Logic:**
 
@@ -61,57 +62,36 @@ graph LR;
 
 **Sample Output:**
 
-<style>
-    .heatMap {
-        width: 70%;
-        text-align: center;
-    }
-    .heatMap th {
-        background: grey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .heatMap tr:nth-child(1) { background: #BFFFE9; }
-    .heatMap tr:nth-child(2) { background: #BFFFE9; }
-    .heatMap tr:nth-child(3) { background: #BFFFE9; }
-    .heatMap tr:nth-child(4) { background: #BFFFE9; }
-    .heatMap tr:nth-child(5) { background: #FF7FAA; }
-    .heatMap tr:nth-child(6) { background: #FF7FAA; }
-    .heatMap tr:nth-child(7) { background: #FFD47F; }
-    .heatMap tr:nth-child(8) { background: #FFD47F; }
-</style>
+| Number# | Input            | Output                                               | 
+|---------|------------------|------------------------------------------------------|
+| 1       | 	"Madam"         | $${\color{green}True}$$                              | 
+| 2       | 	"KaYak"         | $${\color{green}True}$$                              |
+| 3       | 	"Ma121am"       | $${\color{green}True}$$                              | 
+| 4       | 	"A123454321A"   | $${\color{green}True}$$                              |
+| 5       | 	"test Text"     | $${\color{red}False}$$                               |
+| 6       | 	"testText12345" | $${\color{red}False}$$                               |
+| 7       | 	"1234Test"      | $${\color{Orange}Invalid Input}$$                    |
+| 8       | 	" testText"     | $${\color{Orange}Invalid Input}$$ Starts with Space  |
 
-<div class="heatMap">
 
-| Number# | Input        | Output        | 
-|---------|--------------|---------------|
-| 1       | 	"Madam"     | True          | 
-| 2       | 	"KaYak"     | true          |
-| 3       | 	"Ma121am"   | true          | 
-| 4       | 	"123454321" | true          |
-| 5       | 	"test Text" | false         |
-| 6       | 	"testText12345" | false         |
-| 7       | 	"12345"     | Invalid Input |
-| 8       | 	" testText" | Invalid Input |
 
-</div>
 
 **Sample Curl Output:**
 
 1. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "MadAM" }
-   
+
    Output: { "username": "testuser1", "text": "MadAM", "palindrome": true }
-   
-2. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak" } 
-   
+
+2. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak" }
+
    Output: { "username": "testuser1", "text": "KaYak", "palindrome": true }
 
 3. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "KaYak123" }
-   
+
    Output: { "username": "testuser1", "text": "KaYak123", "palindrome": false }
 
 4. curl -X POST "http://localhost:8080/api/checkPalindrome" -H "accept: application/json" -H "Content-Type: application/json" -d { "username" : "testuser1", "text": "123KaYak" }
-   
-   Output: 
-      * Bad Request(400)
-      * "Invalid User Request: Only Non-Empty and alphanumeric characters are allowed as inputs"
+
+   Output:
+   * Bad Request(400)
+   * "Invalid User Request: Only Non-Empty and alphanumeric characters are allowed as inputs"
