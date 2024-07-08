@@ -70,7 +70,7 @@ graph LR;
 | 4       | 	"123454321" | $${\color{green}True}$$            |
 | 5       | 	"test Text" | $${\color{red}False}$$         |
 | 6       | 	"testText12345" | $${\color{red}False}$$          |
-| 7       | 	"12345"     | $${\color{Orange}Invalid Input}$$  |
+| 7       | 	"1234Test"     | $${\color{Orange}Invalid Input}$$  |
 | 8       | 	" testText" | $${\color{Orange}Invalid Input}$$ |
 
 
